@@ -1,1 +1,6 @@
-0.3.8
+# Unsupported Versions
+# Add version numbers (one per line) that are no longer supported but can still be used
+# Users will see a warning modal they must accept to continue
+# Format: major.minor.patch (e.g., 0.1.0)
+# Lines starting with # are comments and will be ignored
+
