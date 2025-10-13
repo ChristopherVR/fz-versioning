@@ -8,7 +8,15 @@ parent: 'index.md'
 
 All notable changes to the "fuzor-ai-transformer" extension will be documented in this file.
 
-## [0.4.0] - 2025-10-11
+## [0.3.10] - 2025-10-13
+
+### Changed
+
+* **Tool Classification Changes**: Reorganised agent tools for better default experience
+  - **File-to-Markdown tools** moved to **built-in (system) tools**: Now always available to agents by default, enabling seamless document conversion without manual configuration
+  - **Transformer tools** moved to **custom (user) tools**: Now require manual selection, providing more granular control over when agents can create and execute transformers
+
+## [0.3.9] - 2025-10-11
 
 ### Added
 
@@ -40,8 +48,8 @@ All notable changes to the "fuzor-ai-transformer" extension will be documented i
   - Transformers from tree view can be dragged into chat (hold Shift to drop)
 * **Selective Fuzor Tools**: Transformers can now specify which Fuzor tools they have access to via new UI selector
 * **Documentation Website**: 
-  - New GitHub Pages hosting at `https://deloitte-australia.github.io/fuzor-ai-transformer/`
-  - GitHub Wiki for searchable guides
+  - New GitHub Pages hosting at `https://vigilant-enigma-8e9l98e.pages.github.io/`
+  - GitHub Wiki for searchable guides at `https://github.com/Deloitte-Australia/fuzor-ai-transformer/wiki`
   - Offline documentation bundled with extension
   - Enhanced README files for each project component
 
@@ -59,16 +67,6 @@ All notable changes to the "fuzor-ai-transformer" extension will be documented i
 * Improved tool error handling and validation
 * Fixed file path resolution in file conversion tools
 * Enhanced transformer execution state management to prevent race conditions
-
-### Screenshots
-
-![Version update notification](screenshots/v0.4.0/version-notification.png)
-![Transformer tools in chat](screenshots/v0.4.0/transformer-tools-demo.gif)
-![File to Markdown conversion](screenshots/v0.4.0/file-to-markdown-demo.png)
-![Drag and drop functionality](screenshots/v0.4.0/drag-drop-demo.gif)
-![Fuzor tools selector](screenshots/v0.4.0/tools-selector.png)
-![Provider selection in chat](screenshots/v0.4.0/provider-selection.png)
-![Documentation website](screenshots/v0.4.0/docs-website.png)
 
 ## [0.3.7] - 2025-09-28
 
