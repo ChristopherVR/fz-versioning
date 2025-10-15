@@ -8,6 +8,38 @@ parent: 'index.md'
 
 All notable changes to the "fuzor-ai-transformer" extension will be documented in this file.
 
+## [0.3.11] - 2025-10-15
+
+### Added
+
+* **Confluence Integration**: Complete Confluence integration system enabling AI agents to interact with Confluence content
+  - New `confluenceUtils.ts` utilities for fetching pages, searching content, and handling authentication
+  - New `confluenceTools.ts` AI tools for seamless Confluence operations within chat
+  - Support for multiple view types (editor, export_view, anonymous_export_view) and content expansion options
+* **Enhanced Document Processing**: New dependencies for improved file handling
+  - Added `turndown` for HTML to Markdown conversion
+  - Added `mammoth` for Microsoft Word document processing
+  - Added `@types/turndown` for TypeScript support
+* **Installation Script Improvements**: Enhanced build process with separate CI and regular installation modes
+  - `install:all` for regular development installs
+  - `installci:all` for CI environment installs
+  - Better dependency management and caching
+
+### Changed
+
+* **Dependency Cleanup**: Removed deprecated packages for cleaner dependency tree
+  - Removed `@types/dotenv`, `@types/xlsx`, and `npm-run-all`
+  - Updated package management scripts for better maintainability
+* **Chat Enhancements**: Various improvements to chat functionality
+  - Enhanced chat input handling and layout improvements
+  - Improved mention system and tool call parsing
+  - Added undo stack functionality for better user experience
+* **Version Management**: Bumped all package versions to 0.3.11
+
+### Fixed
+
+* Minor code improvements and formatting fixes across the codebase
+
 ## [0.3.10] - 2025-10-13
 
 ### Changed
@@ -27,12 +59,11 @@ All notable changes to the "fuzor-ai-transformer" extension will be documented i
   - `execute_transformer`: Run transformers directly from chat with dynamic input schemas
 * **Chat Management Tool**: New `rename_chat_session` tool for managing chat sessions
   - Allows AI agents to rename the current chat session when explicitly requested by the user
-* **File-to-Markdown Conversion Tool**: New `convert_file_to_markdown` tool supporting 60+ file formats
-  - Office documents (DOCX, XLSX, PPTX)
-  - PDFs
-  - Images and code files
-  - Archives
+* **File-to-Markdown Conversion Tool**: New `convert_file_to_markdown` tool for Office documents and PDFs
+  - Office documents (DOCX, DOC, XLSX, XLS, PPTX, PPT)
+  - PDF files
   - Preserves formatting including tables, lists, and headings
+  - For Excel data analysis, the dedicated Data Analysis tools are preferred
 * **Version Management System**: Automatic version checking with comprehensive status tracking
   - Update notifications via status bar indicator when new versions are available
   - Unsupported version warnings for versions no longer receiving support
