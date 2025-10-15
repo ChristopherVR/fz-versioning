@@ -7,6 +7,22 @@ parent: 'index.md'
 # Changelog
 
 All notable changes to the "fuzor-ai-transformer" extension will be documented in this file.
+## [0.3.12] - 2025-10-15
+#### Added
+**AI Model Support**
+- Added `claude-sonnet-4.5` model configuration to GitHub Copilot provider
+  - Max tokens: 4,096
+  - Context window: 128,000
+  - Max input tokens: 89,827
+  - Supports: Temperature, Top-P, and images
+  - Pricing: Free (via Copilot subscription)
+- Added `claude-sonnet-4.5` model configuration to Anthropic provider
+  - Max tokens: 64,000
+  - Context window: 200,000
+  - Input price: $3 per million tokens
+  - Output price: $15 per million tokens
+  - Supports: Temperature and Top-P
+
 
 ## [0.3.11] - 2025-10-15
 
