@@ -7,6 +7,24 @@ parent: 'index.md'
 # Changelog
 
 All notable changes to the "fuzor-ai-transformer" extension will be documented in this file.
+
+## [0.3.13] - 2025-10-16
+
+### Added
+
+* **Extension Download & Installation**: In-extension download capability for new versions
+  - Download and install updates directly from GitHub without leaving VS Code
+  - Automatic version detection and streamlined update process
+  - Requires GitHub authentication for access to releases
+
+* **Enhanced Diff Preview Tool**: Integrated VS Code's built-in diff viewer for file changes
+  - Side-by-side comparison shows exact changes before applying them
+  - Users can preview, accept, or reject changes to prevent unintended modifications
+
+### Fixed
+ - Fixed issue where creating a new transformer would lose all form data when validation errors occurred
+
+
 ## [0.3.12] - 2025-10-15
 #### Added
 **AI Model Support**
