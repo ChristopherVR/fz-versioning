@@ -8,6 +8,32 @@ parent: 'index.md'
 
 All notable changes to the "fuzor-ai-transformer" extension will be documented in this file.
 
+## [0.3.16] - 2025-10-17
+
+### Added
+
+* **Advanced File-to-Markdown Conversion Tools**: New AI agent tools for enhanced document processing
+  - `convert_office_to_markdown`: Convert Office documents (DOCX, DOC, XLSX, XLS, PPTX, PPT) to Markdown with full formatting preservation
+  - `convert_pdf_to_markdown`: Convert PDF files to Markdown with page range control and image extraction
+  - Integrated PDFium library for robust PDF processing with configurable page limits and image rendering
+  - Enhanced image processing with PNG optimization for AI consumption
+
+* **File Utilities Enhancements**: New file system utilities for robust file operations
+  - Added `ensureDirectoryExists` function for reliable directory creation
+  - Added `writeFileToPath` function for safe file writing with automatic directory creation
+  - Improved file system error handling and path resolution
+
+### Changed
+
+* **Build System Improvements**: Updated version management and installation scripts
+  - Modified `update_version.py` to run `npm run format:fix` as the final step for consistent code formatting
+  - Changed `install:all` script to use `npm install` instead of `npm clean-install` for better caching
+  - Enhanced shared prompt system with improved agent behavior and reasoning capabilities
+
+### Fixed
+
+* **Dependency Management**: Resolved npm installation issues by clearing corrupted node_modules in shared directory and reinstalling dependencies
+
 ## [0.3.13] - 2025-10-16
 
 ### Added
