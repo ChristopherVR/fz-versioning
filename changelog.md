@@ -8,7 +8,25 @@ parent: 'index.md'
 
 All notable changes to the "fuzor-ai-transformer" extension will be documented in this file.
 
-## [0.3.16] - 2025-10-17
+## [0.3.15] - 2025-10-18
+
+### Added
+
+* **Agent Configuration UI**: Interactive CodeLens interface for configuring Fuzor tools in chatmode files
+  - New CodeLens provider displays "Configure Fuzor Tools..." action above `fuzorTools` frontmatter attribute in `.chatmode.md` files
+  - Multi-select QuickPick UI allows users to enable/disable Fuzor tool sets for individual agents
+  - Automatic frontmatter updating with proper YAML formatting preservation
+  - Support for both user agents (global storage) and repository-based agents (`.github/chatmodes`)
+
+* **SharePoint Deployment Automation**: Complete deployment system for documentation
+  - Complete deployment documentation in `fuzorWebsite/docs/deployment.md`
+  - Note: This deployment to SharePoint still contains a developer to run it manually.
+
+### Fixed
+
+* Minor improvements to chat context and agent file URI tracking preventing Knowledge base from being detected in agents containing dashes in their names.
+
+## [0.3.14] - 2025-10-17
 
 ### Added
 
