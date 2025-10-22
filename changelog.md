@@ -8,6 +8,19 @@ parent: 'index.md'
 
 All notable changes to the "fuzor-ai-transformer" extension will be documented in this file.
 
+## [0.3.16] - 2025-10-22
+
+### Added
+
+- **General**: Underlying exception message logged to Output window when errors occur
+- **Global Settings**: `Show stack trace on errors` option
+  - When errors are logged within Output window, stack traces will be included for debugging
+- **Settings et al**: Clicking on labels sets focus to associated input field, or toggles checkbox/radio button
+
+### Fixed
+
+- Windows Open File dialog failure when selecting files within the workspace folder
+
 ## [0.3.15] - 2025-10-18
 
 ### Added
