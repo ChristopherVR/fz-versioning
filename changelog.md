@@ -7,6 +7,72 @@ parent: 'index.md'
 # Changelog
 
 All notable changes to the "fuzor-ai-transformer" extension will be documented in this file.
+## [0.4.0] - 2025-11-13
+
+> See the Removed section for breaking changes that may affect you.
+
+### Added
+
+- **Model Context Protocol (MCP) Support**: Fuzor now implements full support for the Model Context Protocol, enabling AI agents to connect to external tools, databases, APIs, and services through standardised server integrations. MCP represents a fundamental expansion of Fuzor's capabilities, allowing seamless integration with a growing ecosystem of MCP-compatible servers.
+    - ![MCP Server Configuration](screenshots/changelog/images/mcp_server_config.png)
+- **Fuzor-Curated MCP Library**: Pre-configured collection of verified and tested MCP servers that works great with Fuzor.
+    - ![MCP Server Configuration](screenshots/changelog/images/mcp_library.png)
+- **GitHub MCP Registry Compatibility**: Native support for the GitHub MCP Registry format (`mcp.json` and `mcp.config.json`), allowing installation of MCP servers from any compatible registry. Fuzor automatically transforms registry formats into compatible configurations.
+- **MCP Workspace and Global Scopes**: MCP servers can be configured at workspace level (project-specific) or globally (user-wide), with automatic scope management and file-based persistence. Configuration files are stored as `.mcp/config.json` in workspace or global storage directories.
+- **Per-Agent MCP Tool Selection**: Fine-grained control over which MCP servers and individual tools are available to each agent. Supports wildcard patterns (`server::*` for all tools from a server) or specific tool selection (`server::tool_name`).
+    - ![MCP Server Configuration](screenshots/changelog/images/agent_mcp_selection.png)
+- **MCP Transport Support**: Complete implementation of MCP transport protocols including:
+    - STDIO transports: NPX (Node.js packages), Python pip packages, and Docker containers
+    - Remote transports: HTTP with Server-Sent Events (SSE), Streamable HTTP, and WebSocket connections
+    - OAuth 2.1 authentication support for remote servers
+- **Automated MCP Package Installation**: Automatic installation of Python pip packages and Docker images when installing MCP servers. The system validates prerequisites and guides users through the installation process.
+    > **Note** we weren't able to test everything so if you find any issues with a specific server please open a Git issue for us to review.
+- **Chat Export/Import**: Export chat conversations to JSON files for backup, sharing, or archival. Import previously exported chats to restore conversation history or continue discussions from another machine.
+    - ![MCP Server Configuration](screenshots/changelog/images/chat_history_import.png)
+    - ![MCP Server Configuration](screenshots/changelog/images/chat_history_export.png)
+- **Provider Lock Status Indicators**: Chat interface now displays all compatible LLM providers with visual "locked" indicators when configuration is incomplete. Hovering over locked providers shows tooltips explaining what configuration is missing (API key, endpoint, etc.).
+    - ![MCP Server Configuration](screenshots/changelog/images/provider_chat_lock.png)
+- **Chat History Active Session Highlight**: The current active chat session is now visually highlighted in the chat history sidebar, making it easier to identify which conversation you're currently viewing.
+- **Chat History Clear Confirmation**: Added confirmation dialog when clearing all chat history to prevent accidental deletion of conversation data.
+- **Universal Copy to Clipboard**: Consistent clipboard functionality throughout the application, allowing you to copy code blocks, tool outputs, configuration snippets, and other content with a single click.
+- **Data Analytics Tool Output Rendering**: Purpose-built rendering components for data analysis tool results, displaying Excel, CSV, and JSON data in structured, readable table formats with proper column alignment and formatting.
+    - ![Data Analytics Output](screenshots/changelog/images/data_analysis_output_1.png)
+    - ![Data Analytics Output](screenshots/changelog/images/data_analysis_output_2.png)
+- **Default Agent Tool Customisation**: The built-in FuzorAgent can now be customised with specific Fuzor tool sets and MCP server selections without requiring creation of a custom agent.
+- **Enhanced Data Analytics Tools**: Improved tool descriptions and LLM guidance for better tool selection and usage. Added new sub-tool for fetching individual sheets from multi-sheet Excel files, enabling more granular data analysis workflows.
+- **Fuzorprompt IntelliSense Enhancement**: Improved syntax highlighting and IntelliSense for `.fuzorprompt` files, providing better auto-completion and validation in preparation for the unified Prompt Library.
+    - ![Data Analytics Output](screenshots/changelog/images/fuzor_prompt_highlight.png)
+- **Claude 4.5 Haiku Model Support**: Added Claude 4.5 Haiku model to both GitHub Copilot and Anthropic provider configurations, offering a faster, more cost-effective option for lightweight tasks.
+- **Git Library Token Authentication**: Support for personal access token (PAT) authentication with the Git library repository, as an alternative to GitHub OAuth sessions.
+    > Note: These changes were made to allow users in the future to hook up Fuzor to a different git-library that has a similar structure. The other improvement to this is, in the future we can look at ways to provide git-library access to non-Github users.
+
+### Changed
+
+- **Transformers Has a new home**: The transformer list view has been moved to its own dedicated space. This is in preparation to eventually change Transformer library into a prompt library.
+    - ![Data Analytics Output](screenshots/changelog/images/transformer_button_start.png)
+    - ![Data Analytics Output](screenshots/changelog/images/transformer_list_view.png)
+- **Refreshed Settings Interface**: Complete redesign of the settings view with improved visual hierarchy, clearer section organisation, and better discoverability of configuration options. The new layout groups related settings together and provides contextual help text.
+    - ![Data Analytics Output](screenshots/changelog/images/settings_fuzor_ui.png)
+    - ![Data Analytics Output](screenshots/changelog/images/settings_mcp_ui.png)
+- **Markdown Tools Now Optional**: File-to-Markdown conversion tools moved from built-in tools to optional custom tools. This allows users to deselect them when using MCP-based alternatives like the MarkItDown server, reducing token usage and tool clutter.
+- **Improved Version Checking**: Enhanced version checking logic eliminates redundant API calls and handles Git library unavailability more gracefully. Version blacklist warnings now only appear when definitively confirmed, not during temporary network issues.
+
+### Removed
+
+- **Confluence Custom Tool**: The custom Confluence integration tool has been removed. Users should migrate to the Fuzor-curated MCP Confluence server, which provides more comprehensive functionality and follows the standardised MCP protocol.
+- **Confluence Integration Settings**: Confluence authentication and configuration settings removed from extension settings. Use the MCP server configuration interface to set up Confluence integration instead.
+- **Data Enrichment Tool**: Temporarily removed due to functionality issues. This tool will be revisited and potentially reimplemented in a future release.
+
+### Fixed
+
+- **Tool Approval Button Display**: Resolved an issue where the approval button would not display in all instances where user approval was required for file-modifying tools.
+- **Duplicate Webview Command Triggers**: Fixed a bug that caused duplicate command executions in the webview UI due to code sharing between the chat view and library view panels.
+
+### Technical Changes
+
+- **Dependency Updates**: Updated all npm dependencies across main extension, shared library (`@fuzor-ai/shared`), webview-ui, and fuzorWebsite projects to latest stable versions.
+- **Cancellation Token Support**: Improved webview RPC command handling with proper VS Code cancellation token support, enabling graceful cancellation of long-running operations.
+- **Command Manifest Cleanup**: Removed over a dozen unused VS Code commands from `package.json`, reducing extension footprint and improving activation performance.
 
 ## [0.3.20] - 2025-11-01
 
@@ -109,7 +175,7 @@ All notable changes to the "fuzor-ai-transformer" extension will be documented i
   - Support for both user agents (global storage) and repository-based agents (`.github/chatmodes`)
 
 * **SharePoint Deployment Automation**: Complete deployment system for documentation
-  - Complete deployment documentation in `fuzorWebsite/docs/deployment.md`
+  - Complete deployment documentation in `deployment.md`
   - Note: This deployment to SharePoint still contains a developer to run it manually.
 
 ### Fixed
