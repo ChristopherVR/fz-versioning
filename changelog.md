@@ -7,6 +7,17 @@ parent: 'index.md'
 # Changelog
 
 All notable changes to the "fuzor-ai-transformer" extension will be documented in this file.
+## [0.4.1] - 2025-11-17
+
+### Fixed
+
+- **MCP Workspace Folder Creation**: Reduced unnecessary creation of the `.fuzor/mcp` folder in workspaces when MCP servers are not being installed at the workspace scope.
+- **MCP Installation Scope**: Updated the installation modal to default to global scope, improving the user experience when adding new MCP servers.
+- **MCP STDIO Transport Support**: Added support for MCP servers using STDIO transport with custom executables beyond npx and Python packages.
+- **MCP Server Uninstallation**: Resolved an issue where uninstalling an MCP server did not properly remove the server from selected agents and FuzorAgent configurations.
+- **MCP Server Selection**: Fixed an issue preventing users from deselecting MCP servers in the MCP popup when the server is not currently running.
+- **MCP Server Tool Execution**: Resolved an issue where MCP servers were incorrectly skipped during tool calling, preventing their tools from being properly invoked by AI agents.
+
 ## [0.4.0] - 2025-11-13
 
 > See the Removed section for breaking changes that may affect you.
