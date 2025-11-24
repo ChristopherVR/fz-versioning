@@ -7,6 +7,12 @@ parent: 'index.md'
 # Changelog
 
 All notable changes to the "fuzor-ai-transformer" extension will be documented in this file.
+## [0.4.2] - 2025-11-25
+
+### Fixed
+
+- Fixed an issue where custom models did not display in the Fuzor chat.
+
 ## [0.4.1] - 2025-11-17
 
 ### Fixed
