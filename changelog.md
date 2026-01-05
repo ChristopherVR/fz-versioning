@@ -7,6 +7,13 @@ parent: 'index.md'
 # Changelog
 
 All notable changes to the "fuzor-ai-transformer" extension will be documented in this file.
+
+## [0.4.3] - 2025-12-18
+
+### Fixed
+
+- Fixed [issue 310](https://github.com/Deloitte-Australia/fuzor-ai-transformer/issues/310) when editing transformers (old details shown).
+
 ## [0.4.2] - 2025-11-25
 
 ### Fixed
